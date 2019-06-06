@@ -163,11 +163,11 @@ function myFunction() {
   	
  	Locations:<input type="text" name="location" id="locationname"><br><br>
  	enter username:<input type="text" name="username1" id="name"><br><br>
-  <input type="submit" name="Addcart">Add to cart</button>
-  <input type="submit" name="total">total</button>
+  <input type="submit" name="Addcart" value = "Add to cart">
+  <input type="submit" name="total" value = "total">
   
   <br><br>
-  <a href="finalize.jsp">Finalize comand!</a><br>
+ <!--  <a href="finalize.jsp">Finalize comand!</a><br> -->
 </form>
 <form action="metallica.jsp" method="post">
 </form>

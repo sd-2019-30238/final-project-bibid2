@@ -92,18 +92,18 @@ ResultSet resultSet = null;
 <table id="myTable">
   <tr class="header">
 <td></td>
-
+<!--String sql ="select bandName from userlist where iduser='"+request.getAttribute("name")+"'";-->
 </tr>
 <%
 try{
 connection = DriverManager.getConnection(connectionUrl+database, userid, password);
 statement=connection.createStatement();
-String sql ="select bandName from userlist where iduser='"+request.getAttribute("name")+"'";
+String sql ="select name from bands";
 resultSet = statement.executeQuery(sql);
 while(resultSet.next()){
 %>
 <tr onclick="myFunction(this)">
-<td><%=resultSet.getString("bandName") %></td>
+<td><%=resultSet.getString("name") %></td>
 <td>&nbsp&nbsp&nbsp&nbsp&nbsp<input type="button" id= "myButton" value="Go to website" class="button"></td>
 
 

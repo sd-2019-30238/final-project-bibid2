@@ -22,7 +22,7 @@ public class Mail {
 		properties.put("mail.smtp.host", "smtp.gmail.com");
 		properties.put("mail.smtp.port", "587");
 		String from = "biancadondas21@gmail.com";
-		String password = "Bleckyblanca12";
+		String password = "Bleckyblanca12#";
 
 		Session sesion = Session.getInstance(properties, new Authenticator() {
 			@Override
@@ -40,13 +40,13 @@ public class Mail {
 	}
 
 	public static Message prepareMessage(Session session, String from, String recepient) {
-
+		WriteUser wr  = new WriteUser();
 		try {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(from));
 			message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-			message.setSubject("Book Available");
-			message.setText("Hello, your account was successfuly created");
+			message.setSubject("Bill");
+			message.setText("Hello here is the bill for your order\n location of the tickets are: "+wr.products("czaada@gmail.com")+ "with a total of: " + wr.total("czaada@gmail.com")+" euro");
 			return message;
 		} catch (Exception e) {
 			Logger.getLogger(Mail.class.getName(), null).log(Level.SEVERE, null, e);

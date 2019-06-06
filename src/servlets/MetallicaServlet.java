@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Utils.UserUtils.Mail;
 import Utils.UserUtils.WriteComand;
 import Utils.UserUtils.WriteUser;
 import Utils.UserUtils.readComand;
@@ -71,12 +72,9 @@ public class MetallicaServlet extends HttpServlet {
 			request.getRequestDispatcher("metallica.jsp").forward(request, response);
 		}
 		if(request.getParameter("total") != null){
-			try {
-				System.out.println("totalul dvs este de: " + userfunctions.total(username));
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			//System.out.println("totalul dvs este de: " + userfunctions.total(username));
+			Mail m = new Mail();
+			m.sendMail(username);
 			request.getRequestDispatcher("metallica.jsp").forward(request, response);
 		}
 	}

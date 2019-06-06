@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import conection.Conn;
 
@@ -35,9 +36,21 @@ public class WriteUser {
 
 		return total;
 	}
+	public ArrayList<String> products(String username) throws SQLException {
+		ArrayList<String> products = new ArrayList<String>();
+		PreparedStatement pr = con.prepareStatement("SELECT location FROM tickets WHERE username=" + "'"	+ username + "'");
+		ResultSet rs = pr.executeQuery();
+		Statement statement = getCon().createStatement();
+		while(rs.next()) {
+			
+			products.add(rs.getString(1));
+		}
+
+		return products;
+	}
 //	public static void main(String[] args) throws SQLException
 //	{
-//		System.out.println(WriteUser.total("czaada@gmail.com"));
+//		System.out.println(WriteUser.products("czaada@gmail.com"));
 //	}
 	public static Connection getCon() {
 		return con;
